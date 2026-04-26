@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Speaker Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/admin.css" />
+    <script src="js/admin.js" defer></script>
+</head>
+
+<body>
+    <main class="admin-layout">
+        <div class="controls-layout">
+            <div class="left-stack">
+                <section class="panel">
+                    <h2>Settings</h2>
+
+                    <form id="backgroundForm" class="background-form">
+                        <section class="style-group">
+                            <h3>Background</h3>
+                            <label for="backgroundColorInput">Color</label>
+                            <div class="background-controls">
+                                <input id="backgroundColorInput" name="backgroundColor" type="color" value="#04151f" />
+                            </div>
+
+                            <label for="logoUploadInput">Index Logo</label>
+                            <input id="logoUploadInput" name="logoUpload" type="file" accept="image/*" />
+                            <button id="resetLogoBtn" type="button" class="secondary">Reset to Default Logo</button>
+                            <p id="logoUploadStatus" class="helper">Default logo in use.</p>
+                        </section>
+                    </form>
+
+                    <form id="speakerStyleForm" class="style-form">
+                        <section class="style-group">
+                            <h3>Speaker Box</h3>
+
+                            <label class="checkbox-row" for="speakerBoxVisibleInput">
+                                <input id="speakerBoxVisibleInput" name="speakerBoxVisible" type="checkbox" checked />
+                                Show Speaker Box Background
+                            </label>
+
+                            <label for="speakerBoxColorInput">Box Color</label>
+                            <div class="background-controls">
+                                <input id="speakerBoxColorInput" name="speakerBoxColor" type="color" value="#081d2a" />
+                            </div>
+
+                            <label for="speakerBoxPaddingXInput">Left / Right Padding</label>
+                            <input id="speakerBoxPaddingXInput" name="speakerBoxPaddingX" type="range" min="0" max="500" step="2" value="24" />
+
+                            <label for="speakerBoxPaddingYInput">Top / Bottom Padding</label>
+                            <input id="speakerBoxPaddingYInput" name="speakerBoxPaddingY" type="range" min="0" max="500" step="2" value="24" />
+                        </section>
+
+                        <section class="style-group">
+                            <h3>Speaker Name</h3>
+
+                            <label for="speakerNameColorInput">Color</label>
+                            <div class="background-controls">
+                                <input id="speakerNameColorInput" name="speakerNameColor" type="color" value="#f6fbff" />
+                            </div>
+
+                            <label for="speakerNameFontSelect">Font</label>
+                            <select id="speakerNameFontSelect" name="speakerNameFontFamily">
+                                <option value="&quot;Trebuchet MS&quot;, &quot;Segoe UI&quot;, Tahoma, sans-serif">Trebuchet MS</option>
+                                <option value="Arial, Helvetica, sans-serif">Arial</option>
+                                <option value="Georgia, serif">Georgia</option>
+                                <option value="&quot;Times New Roman&quot;, Times, serif">Times New Roman</option>
+                            </select>
+
+                            <label for="speakerNameSizeInput">Size</label>
+                            <input id="speakerNameSizeInput" name="speakerNameSize" type="range" min="20" max="220" step="2" value="78" />
+
+                            <label for="speakerNameFontWeightSelect">Weight</label>
+                            <select id="speakerNameFontWeightSelect" name="speakerNameFontWeight">
+                                <option value="400">Normal</option>
+                                <option value="500">Medium</option>
+                                <option value="600">Semibold</option>
+                                <option value="700">Bold</option>
+                                <option value="800">Extra Bold</option>
+                                <option value="900">Black</option>
+                            </select>
+                        </section>
+
+                        <section class="style-group">
+                            <h3>Speaker Title</h3>
+
+                            <label for="speakerTitleColorInput">Color</label>
+                            <div class="background-controls">
+                                <input id="speakerTitleColorInput" name="speakerTitleColor" type="color" value="#d8e3ec" />
+                            </div>
+
+                            <label for="speakerTitleFontSelect">Font</label>
+                            <select id="speakerTitleFontSelect" name="speakerTitleFontFamily">
+                                <option value="&quot;Trebuchet MS&quot;, &quot;Segoe UI&quot;, Tahoma, sans-serif">Trebuchet MS</option>
+                                <option value="Arial, Helvetica, sans-serif">Arial</option>
+                                <option value="Georgia, serif">Georgia</option>
+                                <option value="&quot;Times New Roman&quot;, Times, serif">Times New Roman</option>
+                            </select>
+
+                            <label for="speakerTitleSizeInput">Size</label>
+                            <input id="speakerTitleSizeInput" name="speakerTitleSize" type="range" min="16" max="180" step="2" value="54" />
+
+                            <label for="speakerTitleFontWeightSelect">Weight</label>
+                            <select id="speakerTitleFontWeightSelect" name="speakerTitleFontWeight">
+                                <option value="400">Normal</option>
+                                <option value="500">Medium</option>
+                                <option value="600">Semibold</option>
+                                <option value="700">Bold</option>
+                                <option value="800">Extra Bold</option>
+                                <option value="900">Black</option>
+                            </select>
+                        </section>
+                    </form>
+                </section>
+            </div>
+
+            <section class="panel preview-panel">
+                <section id="previewWindow" class="preview-window" aria-label="Preview of the public screen">
+                    <div class="preview-canvas">
+                        <iframe
+                            id="previewFrame"
+                            class="preview-iframe"
+                            src="/"
+                            title="Preview of the public screen"
+                            loading="lazy"
+                        ></iframe>
+                    </div>
+                </section>
+
+                <section class="network-panel" aria-label="Network URLs">
+                    <div id="networkUrlsList" class="network-urls-list">
+                        <p class="helper">Loading local URLs...</p>
+                    </div>
+                </section>
+            </section>
+        </div>
+
+        <div class="bottom-layout">
+            <section class="panel add-speaker-panel">
+                <h2>Add Speaker</h2>
+                <form id="speakerForm" class="speaker-form">
+                    <label>
+                        Name
+                        <input name="name" required placeholder="Jane Doe" />
+                    </label>
+                    <label>
+                        Title / Role
+                        <input name="title" placeholder="CTO, Example Inc." />
+                    </label>
+                    <label class="checkbox-row">
+                        <input id="makeActiveNow" name="makeActiveNow" type="checkbox" />
+                        Active
+                    </label>
+                    <button type="submit" class="secondary">Add Speaker</button>
+                </form>
+            </section>
+
+            <section class="panel active-panel">
+                <h2>Active Speaker</h2>
+                <div class="active-row">
+                    <div id="activeSpotlight" class="active-spotlight">No active speaker</div>
+                    <button id="clearActiveBtn" class="secondary" type="button">Clear Active Speaker</button>
+                    <button id="clearAllBtn" class="danger" type="button">Clear All Speakers</button>
+                </div>
+                <ul id="speakerList" class="speaker-list"></ul>
+            </section>
+        </div>
+    </main>
+
+</body>
+
+</html>

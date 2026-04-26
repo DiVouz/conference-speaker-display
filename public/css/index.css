@@ -1,0 +1,200 @@
+:root {
+    --scene-bg: #04151f;
+    --bg-deep: #04151f;
+    --bg-mid: #113246;
+    --bg-soft: #1d5b72;
+    --text-main: #f6fbff;
+    --text-sub: #c2d3df;
+    --accent: #f7c55a;
+    --banner-bg: rgba(4, 19, 30, 0.82);
+    --banner-border: rgba(255, 255, 255, 0.2);
+    --speaker-box-color: #081d2a;
+    --speaker-box-padding-x: 24px;
+    --speaker-box-padding-y: 24px;
+    --speaker-box-padding: 24px;
+    --speaker-text-color: #f6fbff;
+    --speaker-name-color: #f6fbff;
+    --speaker-title-color: #d8e3ec;
+    --speaker-font-family: "Trebuchet MS", "Segoe UI", Tahoma, sans-serif;
+    --speaker-name-font-family: "Trebuchet MS", "Segoe UI", Tahoma, sans-serif;
+    --speaker-title-font-family: "Trebuchet MS", "Segoe UI", Tahoma, sans-serif;
+    --speaker-name-size: 4.7rem;
+    --speaker-title-size: 1.8rem;
+    --speaker-font-weight: 400;
+    --speaker-name-font-weight: 400;
+    --speaker-title-font-weight: 400;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-family: "Trebuchet MS", "Segoe UI", Tahoma, sans-serif;
+    background: var(--bg-deep);
+}
+
+body {
+    overflow: hidden;
+}
+
+.scene {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: var(--scene-bg);
+}
+
+.center-logo-wrap {
+    position: absolute;
+    top: 33%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(36vw, 520px);
+    min-width: 220px;
+    z-index: 1;
+    opacity: 0.92;
+}
+
+.conference-logo {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.35));
+}
+
+.speaker-banner {
+    position: absolute;
+    left: 50%;
+    bottom: clamp(20px, 4.5vh, 52px);
+    transform: translateX(-50%);
+    width: fit-content;
+    text-align: center;
+    padding: var(--speaker-box-padding-y) var(--speaker-box-padding-x);
+    border-radius: 22px;
+    background: var(--speaker-box-color);
+    border: 1px solid var(--banner-border);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    z-index: 2;
+    transition: opacity 240ms ease, transform 240ms ease;
+}
+
+.speaker-banner.box-hidden {
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+}
+
+body.speaker-only-view .speaker-banner {
+    top: 50%;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+}
+
+.speaker-banner.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(16px);
+}
+
+body.speaker-only-view .speaker-banner.is-hidden {
+    transform: translate(-50%, calc(-50% + 16px));
+}
+
+.speaker-banner.is-entering {
+    animation: banner-enter 380ms cubic-bezier(0.2, 0.75, 0.2, 1);
+}
+
+.speaker-banner.is-updating h1,
+.speaker-banner.is-updating h2 {
+    animation: speaker-text-refresh 340ms ease;
+}
+
+.now-live,
+.speaker-banner h1,
+.speaker-banner h2 {
+    margin: 0;
+}
+
+.now-live {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    color: var(--accent);
+    font-size: clamp(0.9rem, 1.2vw, 1.15rem);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.speaker-banner h1 {
+    color: var(--speaker-name-color);
+    font-family: var(--speaker-name-font-family);
+    font-size: var(--speaker-name-size);
+    font-weight: var(--speaker-name-font-weight);
+    text-wrap: balance;
+    line-height: 1.1;
+    white-space: nowrap;
+}
+
+.speaker-banner h2 {
+    margin-top: 0.6rem;
+    color: var(--speaker-title-color);
+    font-family: var(--speaker-title-font-family);
+    font-size: var(--speaker-title-size);
+    font-weight: var(--speaker-title-font-weight);
+    white-space: nowrap;
+}
+
+@keyframes banner-enter {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(22px) scale(0.98);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+}
+
+@keyframes speaker-text-refresh {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 700px) {
+    .center-logo-wrap {
+        width: min(58vw, 360px);
+        top: 36%;
+    }
+
+    .speaker-banner {
+        width: 92vw;
+        border-radius: 16px;
+        bottom: 14px;
+    }
+
+    .speaker-banner h1 {
+        font-size: var(--speaker-name-size);
+    }
+
+    .speaker-banner h2 {
+        font-size: var(--speaker-title-size);
+    }
+}

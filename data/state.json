@@ -1,0 +1,28 @@
+{
+  "speakers": [
+    {
+      "id": "3b53cb4b-b6e5-4a02-ac1a-ff9cbf6e1e0e",
+      "name": "DiVouz",
+      "title": "Best Developer"
+    }
+  ],
+  "activeSpeakerId": "3b53cb4b-b6e5-4a02-ac1a-ff9cbf6e1e0e",
+  "logoDataUrl": null,
+  "backgroundColor": "#616161",
+  "speakerBoxVisible": true,
+  "speakerBoxColor": "#0dad1c",
+  "speakerBoxPaddingX": 500,
+  "speakerBoxPaddingY": 32,
+  "speakerBoxPadding": 32,
+  "speakerTextColor": "#ffffff",
+  "speakerFontFamily": "Arial, Helvetica, sans-serif",
+  "speakerNameSize": 72,
+  "speakerTitleSize": 38,
+  "speakerFontWeight": 700,
+  "speakerNameColor": "#ffffff",
+  "speakerTitleColor": "#ffffff",
+  "speakerNameFontFamily": "Arial, Helvetica, sans-serif",
+  "speakerTitleFontFamily": "Arial, Helvetica, sans-serif",
+  "speakerNameFontWeight": 700,
+  "speakerTitleFontWeight": 400
+}

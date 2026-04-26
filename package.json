@@ -1,0 +1,17 @@
+{
+    "name": "conference",
+    "version": "1.0.0",
+    "description": "A lightweight conference presentation tool for managing speakers and showing a real-time stage screen.",
+    "author": "DiVouz",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "dependencies": {
+        "express": "^4.21.2",
+        "open": "^11.0.0",
+        "selfsigned": "^2.4.1",
+        "ws": "^8.18.0"
+    },
+    "type": "commonjs",
+    "main": "index.js"
+}
