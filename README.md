@@ -2,15 +2,16 @@
 
 A lightweight conference presentation tool for managing speakers and showing a real-time stage screen.
 
-> ***Vibe Coding Notice***:
-> Most of this code is generated with AI assistance.
-> Use it with caution, review the implementation before production use, and test in a staging environment first.
-
 This project includes:
+
 - A public conference view (logo + speaker banner)
 - A speaker-only view (banner only)
 - An admin dashboard to control speakers, styling, background, and logo
 - Real-time sync via WebSockets
+
+> ***Vibe Coding Notice***:
+> Most of this code is generated with AI assistance.
+> Use it with caution, review the implementation before production use, and test in a staging environment first.
 
 ## Features
 
@@ -56,7 +57,8 @@ This project includes:
 ### 1. Install Node.js (LTS)
 
 Download and install Node.js from the official website:
-- https://nodejs.org/
+
+- <https://nodejs.org/>
 
 Then verify the installation:
 
@@ -123,6 +125,7 @@ If HTTPS is enabled and certificate files are not found, the app generates a sel
 ## Data Persistence
 
 Application state is stored in `data/state.json`, including:
+
 - Speaker list
 - Active speaker
 - Background color
